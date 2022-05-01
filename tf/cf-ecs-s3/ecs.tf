@@ -1,9 +1,9 @@
 resource "aws_ecs_cluster" "my_cluster" {
-   name = "my_cluster_peleg"
+   name = "my_cluster_peleg-${var.region}"
  }
 
  resource "aws_ecs_task_definition" "my_api" {
-  family = "my-api-peleg"
+  family = "my-api-peleg-${var.region}"
   execution_role_arn = aws_iam_role.my_api_task_execution_role.arn
   container_definitions = <<EOF
   [
