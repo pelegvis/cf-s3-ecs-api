@@ -1,5 +1,7 @@
 # cf-s3-ecs-api
 
+This is a basic IoC task to create an API, using cloudfront, s3 bucket that holds static website and a basic dockerized python flask application, running on ECS
+
 
 **To test the API**
 
