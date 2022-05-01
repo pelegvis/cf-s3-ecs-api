@@ -63,8 +63,18 @@ resource "aws_route_table_association" "public_a_subnet" {
   route_table_id = aws_route_table.public.id
 }
 
+resource "aws_route_table_association" "public_b_subnet" {
+  subnet_id      = aws_subnet.public_b.id
+  route_table_id = aws_route_table.public.id
+}
+
 resource "aws_route_table_association" "private_a_subnet" {
   subnet_id      = aws_subnet.private_a.id
+  route_table_id = aws_route_table.private.id
+}
+
+resource "aws_route_table_association" "private_b_subnet" {
+  subnet_id      = aws_subnet.private_b.id
   route_table_id = aws_route_table.private.id
 }
 
@@ -102,18 +112,6 @@ resource "aws_security_group" "http" {
   ingress {
     from_port   = 80
     to_port     = 80
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-
-resource "aws_security_group" "https" {
-  name        = "https"
-  description = "HTTPS traffic"
-  vpc_id      = aws_vpc.api_vpc.id
-  ingress {
-    from_port   = 443
-    to_port     = 443
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }

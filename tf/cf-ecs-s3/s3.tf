@@ -1,13 +1,16 @@
-
+# s3 bucket
 resource "aws_s3_bucket" "cf-s3-static-demo-bucket" {
   bucket = "${var.api_name}-${var.region}"
   tags = {
     Name = "${var.api_name}-${var.region}"
     Environment = var.environment
    }
-  website {
-    index_document = "index.html"
-    error_document = "index.html"
+}
+
+resource "aws_s3_bucket_website_configuration" "example" {
+  bucket = aws_s3_bucket.cf-s3-static-demo-bucket.bucket
+  index_document {
+    suffix = "index.html"
   }
 }
 
