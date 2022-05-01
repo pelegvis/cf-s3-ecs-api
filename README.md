@@ -23,4 +23,4 @@ terraform apply tf.out
 ```
 3. Upload the index.html file to the s3 bucket (instructions: https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html).
 4. Upload the flask-demo image to ECR (instructions: https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html).
-5. Use the domain URL to access your API (it should be shown in the ```terraform apply``` output, or you can get it from the aws console).
+5. Use the domain URL to access your API (it should be returned in the ```terraform apply``` output, or you can get it from the aws console).
